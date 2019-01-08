@@ -26,6 +26,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
        super.viewWillAppear(animated)
     }
     
+    //Configures the UI buttons according to the state the app is in
     func configureUI (isRecording: Bool) {
         if isRecording {
             recordButton.isEnabled = true
@@ -68,6 +69,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioSession.setActive(false)
     }
     
+    //Programatically connects RecordSoundsViewController to PlaySoundsViewController via the segue
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
