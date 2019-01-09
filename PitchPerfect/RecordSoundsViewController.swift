@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
-
+    
     var audioRecorder: AVAudioRecorder!
-
+    
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
@@ -20,10 +20,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         stopRecordingButton.isEnabled = false    }
-
+    
     
     override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
     }
     
     //Configures the UI buttons according to the state the app is in
@@ -38,11 +38,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             recordingLabel.text = "Recording in progress"
         } else {
             
-    }
+        }
         
     }
     
-
+    
     @IBAction func recordAudio(_ sender: Any) {
         
         configureUI(isRecording: false)
@@ -60,7 +60,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     
-
+    
     
     @IBAction func stopRecording(_ sender: Any) {
         configureUI(isRecording: true)
@@ -83,8 +83,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let playSoundsVC = segue.destination as! PlaySoundsViewController
             let recordedAudioURL = sender as! URL
             playSoundsVC.recordedAudioURL = recordedAudioURL
- 
-       }
+            
+        }
     }
 }
+
 
